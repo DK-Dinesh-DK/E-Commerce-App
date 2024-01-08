@@ -1,6 +1,21 @@
-function Card({ item }) {
+import { addCart } from "@/redux/reducers/ProductReducer";
+import { useDispatch, useSelector } from "react-redux";
 
-    
+function Card({ item }) {
+  const dispatch = useDispatch();
+  const cardList = useSelector((state) => {
+    return state.cartList;
+  });
+
+  const handleClick = (item) => {
+    let present = cardList?.cartList?.find(
+      (i) => item.product_id === i.product_id
+    );
+    if (!present) {
+      dispatch(addCart({ ...item, count: 1 }));
+    }
+  };
+
   return (
     <div
       className="bg-white-300  w-60  p-2 flex flex-col items-center   "
@@ -22,7 +37,12 @@ function Card({ item }) {
         }}
       ></div>
       <label>${item.price}</label>
-      <button className="bg-red-400 text-white  w-40 p-2">Add to Cart</button>
+      <button
+        className="bg-red-400 text-white  w-40 p-2"
+        onClick={() => handleClick(item)}
+      >
+        Add to Cart
+      </button>
     </div>
   );
 }
