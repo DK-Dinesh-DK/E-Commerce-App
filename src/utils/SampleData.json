@@ -4,49 +4,46 @@
       "category": "clothing",
       "items": [
         {
-          "name": "T-shirt",
+          "name": "Shirt",
           "price": 19.99,
-          "image_url": "https://example.com/tshirt.jpg"
+          "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhqp2VgrPZcTqTEq0A89gmP4Qr1ii_UJDj3NheLnb4Fg&s",
+          "product_id": 1
         },
         {
           "name": "Jeans",
           "price": 39.99,
-          "image_url": "https://example.com/jeans.jpg"
+          "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM-diBxn9XcMt6Fpvls5qokoqW0J2lxI9gqw&usqp=CAU",
+          "product_id": 2
         },
         {
           "name": "Jacket",
           "price": 59.99,
-          "image_url": "https://example.com/jacket.jpg"
-        }
-      ]
-    },
-    {
-      "category": "shoes",
-      "items": [
+          "image_url": "https://5.imimg.com/data5/RX/XK/MY-42532489/gents-jacket-500x500.jpg",
+          "product_id": 3
+        },
         {
           "name": "Sneakers",
           "price": 49.99,
-          "image_url": "https://example.com/sneakers.jpg"
+          "image_url": "https://www.skechers.in/on/demandware.static/-/Sites-skechers_india/default/dwf0331ccf/images/large/195969707258-1.jpg",
+          "product_id": 4
         },
         {
           "name": "Boots",
           "price": 69.99,
-          "image_url": "https://example.com/boots.jpg"
-        }
-      ]
-    },
-    {
-      "category": "mobile",
-      "items": [
+          "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1oZmvRAWkACnWmXV7yBXB-wVEhV281XzLRw&usqp=CAU",
+          "product_id": 5
+        },
         {
           "name": "Smartphone",
           "price": 299.99,
-          "image_url": "https://example.com/smartphone.jpg"
+          "image_url": "https://5.imimg.com/data5/NN/PW/XN/SELLER-8587078/11-500x500.jpg",
+          "product_id": 6
         },
         {
           "name": "Tablet",
           "price": 199.99,
-          "image_url": "https://example.com/tablet.jpg"
+          "image_url": "https://p3-ofp.static.pub/fes/cms/2023/02/22/5rhddw9d8vm9xfkexcwzvvi9lindg8985574.png",
+          "product_id": 7
         }
       ]
     }

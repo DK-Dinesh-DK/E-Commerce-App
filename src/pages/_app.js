@@ -6,8 +6,8 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Provider store={Store}>
-        <Header />
-        <Component {...pageProps} />
+          <Header />
+          <Component {...pageProps} />
       </Provider>
     </>
   );
