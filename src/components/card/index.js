@@ -9,7 +9,7 @@ function Card({ item }) {
 
   const handleClick = (item) => {
     let present = cardList?.cartList?.find(
-      (i) => item.product_id === i.product_id
+      (i) => item.id === i.id
     );
     if (!present) {
       dispatch(addCart({ ...item, count: 1 }));

@@ -11,7 +11,7 @@ export const ProductReducer = createSlice({
     },
     addItem: (state, action) => {
       let list = state.cartList.map((l) => {
-        if (l.produc_id === action.id) {
+        if (l.id === action.payload.id) {
           return { ...l, count: l.count + 1 };
         }
         return l;
@@ -20,8 +20,8 @@ export const ProductReducer = createSlice({
     },
     removeItem: (state, action) => {
       let list = state.cartList.map((l) => {
-        if (l.produc_id === action.id) {
-          return { ...l, count: l.count - 1 !== 0 ? l.count - 1 : 0 };
+        if (l.id === action.payload.id) {
+          return { ...l, count: l.count - 1 < 0 ? 0 : l.count - 1 };
         }
         return l;
       });
