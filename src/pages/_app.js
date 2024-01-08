@@ -1,11 +1,14 @@
 import Header from "@/components/header";
 import "@/styles/globals.css";
-
+import { Provider } from "react-redux";
+import Store from "@/redux/store";
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <Header />
-      <Component {...pageProps} />
+      <Provider store={Store}>
+        <Header />
+        <Component {...pageProps} />
+      </Provider>
     </>
   );
 }

@@ -1,0 +1,54 @@
+{
+  "products": [
+    {
+      "category": "clothing",
+      "items": [
+        {
+          "name": "T-shirt",
+          "price": 19.99,
+          "image_url": "https://example.com/tshirt.jpg"
+        },
+        {
+          "name": "Jeans",
+          "price": 39.99,
+          "image_url": "https://example.com/jeans.jpg"
+        },
+        {
+          "name": "Jacket",
+          "price": 59.99,
+          "image_url": "https://example.com/jacket.jpg"
+        }
+      ]
+    },
+    {
+      "category": "shoes",
+      "items": [
+        {
+          "name": "Sneakers",
+          "price": 49.99,
+          "image_url": "https://example.com/sneakers.jpg"
+        },
+        {
+          "name": "Boots",
+          "price": 69.99,
+          "image_url": "https://example.com/boots.jpg"
+        }
+      ]
+    },
+    {
+      "category": "mobile",
+      "items": [
+        {
+          "name": "Smartphone",
+          "price": 299.99,
+          "image_url": "https://example.com/smartphone.jpg"
+        },
+        {
+          "name": "Tablet",
+          "price": 199.99,
+          "image_url": "https://example.com/tablet.jpg"
+        }
+      ]
+    }
+  ]
+}
