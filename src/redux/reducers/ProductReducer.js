@@ -9,6 +9,9 @@ export const ProductReducer = createSlice({
     addCart: (state, action) => {
       state.cartList = [...state.cartList, action.payload];
     },
+    deleteCart: (state, action) => {
+      state.cartList = state.cartList.filter((i) => i.id !== action.payload.id);
+    },
     addItem: (state, action) => {
       let list = state.cartList.map((l) => {
         if (l.id === action.payload.id) {
@@ -30,5 +33,6 @@ export const ProductReducer = createSlice({
   },
 });
 
-export const { addItem, addCart, removeItem } = ProductReducer.actions;
+export const { addItem, addCart, removeItem, deleteCart } =
+  ProductReducer.actions;
 export default ProductReducer.reducer;

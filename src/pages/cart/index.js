@@ -4,11 +4,18 @@ import { useSelector, useDispatch } from "react-redux";
 import { DataGrid } from "@mui/x-data-grid";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
-
-import { addItem, removeItem } from "@/redux/reducers/ProductReducer";
+import DeleteIcon from "@mui/icons-material/Delete";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import {
+  addItem,
+  removeItem,
+  deleteCart,
+} from "@/redux/reducers/ProductReducer";
+import { useRouter } from "next/router";
 
 function Cart() {
   const dispatch = useDispatch();
+  const router = useRouter();
   const cardList = useSelector((state) => {
     return state.cartList;
   });
@@ -44,11 +51,12 @@ function Cart() {
     {
       headerName: " ",
       field: "name",
-      width: 130,
+      width: 200,
     },
     {
       headerName: "Quantity",
       field: "count",
+      width: 200,
       renderCell: (item) => {
         return (
           <div
@@ -86,6 +94,21 @@ function Cart() {
       field: "total",
       valueGetter: (props) => (props.row.price * props.row.count).toFixed(2),
     },
+    {
+      headerName: "Remove Cart",
+      field: "remove",
+      renderCell: (props) => {
+        return (
+          <div className="flex justify-center w-full">
+            <DeleteIcon
+              onClick={() => {
+                dispatch(deleteCart(props.row));
+              }}
+            />
+          </div>
+        );
+      },
+    },
   ];
 
   return (
@@ -99,7 +122,15 @@ function Cart() {
         </div>
       ) : (
         <div className="flex flex-col gap-5">
-          <div className="font-bold text-[18px] p-6">Your Cart List</div>
+          <div className="font-bold text-[18px] p-6">
+            <ArrowBackIcon
+              className="cursor-pointer"
+              onClick={() => {
+                router.push("/");
+              }}
+            />
+            Your Cart List
+          </div>
           <div className="flex justify-between p-6">
             <div style={{ width: "65%", height: "60vh" }}>
               <DataGrid
@@ -119,16 +150,6 @@ function Cart() {
                   <span>${TotalAmount.toFixed(2)}</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex gap-x-1 items-center">
-                    SubtDShippingotal
-                  </span>
-                  <span>${shipping.toFixed(2)}</span>
-                </div>
-                <div className="flex items-center justify-between">
-                  <span className="flex gap-x-1 items-center">Taxes</span>
-                  <span>${taxes.toFixed(2)}</span>
-                </div>
-                <div className="flex items-center justify-between">
                   <span className="flex gap-x-1 items-center">Total Items</span>
                   <span>{TotalItem}-items</span>
                 </div>
@@ -141,7 +162,14 @@ function Cart() {
                   </span>
                 </div>
                 <div className="flex items-center justify-center">
-                  <button className="bg-red-400 text-white  w-40 p-2">
+                  <button
+                    className="bg-red-400 text-white  w-40 p-2"
+                    onClick={() => {
+                      if (TotalItem > 0) {
+                        router.push("/checkout");
+                      }
+                    }}
+                  >
                     Check Out
                   </button>
                 </div>
