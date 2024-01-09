@@ -12,6 +12,7 @@ import {
   deleteCart,
 } from "@/redux/reducers/ProductReducer";
 import { useRouter } from "next/router";
+import Tooltip from "@mui/material/Tooltip";
 
 function Cart() {
   const dispatch = useDispatch();
@@ -123,12 +124,14 @@ function Cart() {
       ) : (
         <div className="flex flex-col gap-5">
           <div className="font-bold text-[18px] p-6">
-            <ArrowBackIcon
-              className="cursor-pointer"
-              onClick={() => {
-                router.push("/");
-              }}
-            />
+            <Tooltip title="Go Back">
+              <ArrowBackIcon
+                className="cursor-pointer"
+                onClick={() => {
+                  router.push("/");
+                }}
+              />
+            </Tooltip>
             Your Cart List
           </div>
           <div className="flex justify-between p-6">

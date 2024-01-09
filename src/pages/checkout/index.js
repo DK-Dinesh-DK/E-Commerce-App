@@ -6,6 +6,8 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import { useRouter } from "next/router";
 import { updateDeliveryDetails } from "@/redux/reducers/DeliveryDetailsReducer";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import Tooltip from "@mui/material/Tooltip";
 
 function Checkout() {
   const router = useRouter();
@@ -73,6 +75,14 @@ function Checkout() {
   return (
     <>
       <div className="flex bg-red-500 justify-center text-[18px] text-white">
+        <Tooltip title="Go Back">
+          <ArrowBackIcon
+            className="cursor-pointer"
+            onClick={() => {
+              router.push("/cart");
+            }}
+          />
+        </Tooltip>
         Place Order Get Your Products
       </div>
 

@@ -1,4 +1,5 @@
 import { addCart } from "@/redux/reducers/ProductReducer";
+import Tooltip from "@mui/material/Tooltip";
 import { useDispatch, useSelector } from "react-redux";
 
 function Card({ item }) {
@@ -8,9 +9,7 @@ function Card({ item }) {
   });
 
   const handleClick = (item) => {
-    let present = cardList?.cartList?.find(
-      (i) => item.id === i.id
-    );
+    let present = cardList?.cartList?.find((i) => item.id === i.id);
     if (!present) {
       dispatch(addCart({ ...item, count: 1 }));
     }
@@ -27,15 +26,17 @@ function Card({ item }) {
       }}
     >
       <label className="font-bold">{item.name}</label>
-      <div
-        style={{
-          backgroundImage: `url(${item.image_url})`,
-          minHeight: "230px",
-          width: "230px",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "90%",
-        }}
-      ></div>
+      <Tooltip title={item.name}>
+        <div
+          style={{
+            backgroundImage: `url(${item.image_url})`,
+            minHeight: "230px",
+            width: "230px",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "90%",
+          }}
+        ></div>
+      </Tooltip>
       <label>${item.price}</label>
       <button
         className="bg-red-400 text-white  w-40 p-2"
